@@ -9,6 +9,9 @@ build/
 .vs/
 .code/
 
+# CMake Trash Files
+*.user
+
 # Compiled Object files
 *.slo
 *.lo

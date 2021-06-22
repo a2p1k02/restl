@@ -29,15 +29,15 @@ astr astr::operator= (const char* str_data) {
 }
 
 astr astr::operator+(const astr str1) {
-    astr catstr;
-    size_t catsize = catstr.length + 1;
+    astr newstr;
 
-    catstr.length = this->length + str1.length;
-    catstr.data = new char[catstr.length + 1];
-    strncpy_s(catstr.data, catsize, this->data, this->length);
-    strncpy_s(catstr.data + catsize, str1.length + 1, str1.data, str1.length);
+    newstr.length = this->length + str1.length;
+    newstr.data = new char[newstr.length+1];
 
-    return catstr;
+    strncat(newstr.data, this->data, this->length);
+    strncat(newstr.data, str1.data, newstr.length);
+
+    return newstr;
 }
 
 std::ostream& operator<< (std::ostream& cout, const astr str) {
