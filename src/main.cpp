@@ -1,4 +1,5 @@
 #include "restl/astring.h"
+#include "restl/new.h"
 #include "restl/vector.h"
 #include <iostream>
 
@@ -11,7 +12,7 @@ void astring_test() {
 
 int main() {
     
-    
+    astr* str1;
 
     return 0;
 }
