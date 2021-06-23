@@ -1,3 +1,6 @@
+#ifndef ASTRING_H_
+#define ASTRING_H_
+
 #include <cstring>
 #include <ostream>
 
@@ -15,3 +18,5 @@ public:
     friend void astr_free(astr* str);
     friend size_t astr_len(astr* str);
 };
+
+#endif //ASTRING_H_
