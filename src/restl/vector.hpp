@@ -6,10 +6,19 @@ private:
     T* arr;
     int length;
 public:
-    vector(T something);
-    ~vector();
-    int getLength();
-    vector operator= (const vector* vec1);
+    vector() = default;
+    vector(T something) {
+
+    }
+    ~vector() {
+        delete arr;
+    }
+    int getLength() {
+        return this->length;
+    }
+    vector operator= (const vector* vec1) {
+
+    }
 };
 
 #endif //VECTOR_H_
