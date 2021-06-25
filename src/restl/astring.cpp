@@ -28,7 +28,7 @@ astr astr::operator= (const char* str_data) {
     return str_data;
 }
 
-astr astr::operator+(const astr str1) {
+astr astr::operator+ (const astr str1) {
     astr newstr;
 
     newstr.length = this->length + str1.length;
@@ -38,6 +38,19 @@ astr astr::operator+(const astr str1) {
     strncat(newstr.data, str1.data, newstr.length);
 
     return newstr;
+}
+
+astr astr::operator* (const int count) {
+    astr newstr;
+
+    newstr.data = new char[newstr.length+1];
+
+    for(int i = 0; i <= count; i++) {
+        strncat(newstr.data, this->data, newstr.length*count);
+    }
+
+    return newstr;
+
 }
 
 std::ostream& operator<< (std::ostream& cout, const astr str) {
