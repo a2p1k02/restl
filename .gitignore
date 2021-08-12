@@ -5,6 +5,7 @@
 out/
 build/
 cmake-build-debug/
+.PVS-Studio/
 .idea/
 .vscode/
 .vs/

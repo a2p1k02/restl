@@ -1,6 +1,5 @@
 #include "restl/astring.h"
 #include "restl/vector.hpp"
-#include <vector>
 #include <iostream>
 
 void astring_test()
@@ -21,21 +20,19 @@ void astring_test()
 
 void vector_test()
 {
-    Vector<int> v(3);
+    Vector<int> v;
     v.push_back(10);
-    v.push_back(20);
-    v.push_back(30);
 
-    for (int i = 0; i < v.size(); i++)
+    for (int i = 0; i < v.length(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
 
-    std::cout << v.size() << std::endl;
+    std::cout << v.length() << std::endl;
 }
 
 int main()
 {
-    astring_test();
+    //astring_test();
 
     vector_test();
 
