@@ -26,7 +26,8 @@ Vector<T>::Vector(unsigned int size) : capacity(size)
 template <typename T>
 Vector<T>::~Vector<T>()
 {
-    delete arr;
+    delete[] arr;
+    arr = nullptr;
     this->capacity = 0;
 }
 
