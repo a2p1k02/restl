@@ -1,24 +1,54 @@
-#ifndef VECTOR_H_
-#define VECTOR_H_
+#ifndef VECTOR_H
+#define VECTOR_H
 
-template <typename T> class vector {
+#include <iostream>
+
+template <typename T>
+class Vector {
 private:
     T* arr;
-    int length;
+    int size;
 public:
-    vector() = default;
-    vector(T something) {
-
-    }
-    ~vector() {
-        delete arr;
-    }
-    int getLength() {
-        return this->length;
-    }
-    vector operator= (const vector* vec1) {
-
-    }
+    Vector() = default;
+    Vector(unsigned int size);
+    ~Vector();
+    int length();
+    void push_back(T element);
+    T& operator[] (int index) const;
 };
 
-#endif //VECTOR_H_
+template <typename T>
+Vector<T>::Vector(unsigned int size) : size(size)
+{
+    this->arr = new T[size];
+}
+
+template <typename T>
+Vector<T>::~Vector<T>()
+{
+    delete arr;
+    this->size = 0;
+}
+
+template <typename T>
+int Vector<T>::length()
+{
+    return this->size;
+}
+
+template<typename T>
+void Vector<T>::push_back(T element)
+{
+    this->arr[this->size] = element;
+    this->size++;
+}
+
+template <typename T>
+T& Vector<T>::operator[] (int index) const
+{
+    if (index >= this->size)
+        throw std::out_of_range("Out of range!");
+    return arr[index];
+}
+
+#endif //VECTOR_H

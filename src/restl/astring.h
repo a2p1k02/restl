@@ -15,7 +15,7 @@ public:
     friend std::ostream& operator<< (std::ostream& cout, const astr str);
     astr operator= (const char* str_data);
     astr operator+ (const astr str1);
-    astr operator* (const int count);
+    astr operator* (const int number);
     friend void astr_free(astr* str);
     friend size_t astr_len(astr* str);
 };
