@@ -15,6 +15,8 @@ void astring_test()
     std::cout << str3 << std::endl;
     std::cout << str5 << std::endl;
 
+    std::cout << str3.length() << std::endl;
+
 }
 
 void vector_test()
@@ -24,16 +26,16 @@ void vector_test()
     v.push_back(20);
     v.push_back(30);
 
-    for (int i = 0; i < v.length(); i++)
+    for (int i = 0; i < v.size(); i++)
         std::cout << v[i] << " ";
     std::cout << std::endl;
 
-    std::cout << v.length() << std::endl;
+    std::cout << v.size() << std::endl;
 }
 
 int main()
 {
-    //astring_test(); test for astring
+    astring_test();
 
     vector_test();
 
