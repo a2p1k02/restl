@@ -2,9 +2,7 @@
 #define VECTOR_H
 
 #include <stdexcept>
-#include <initializer_list>
 #include <cstring>
-#include <ostream>
 
 namespace restl {
 
@@ -19,7 +17,7 @@ namespace restl {
         Vector(std::size_t size); // Init constructor
         Vector(Vector<T>& vector); // Copy constructor;
         Vector(Vector<T>&& vector); // Move constructor;
-        ~Vector(); // Destructor;
+        virtual ~Vector(); // Destructor;
 
         //Vector methods
         std::size_t size();
@@ -30,7 +28,6 @@ namespace restl {
 
         //Operators
         T& operator[] (std::size_t index);
-        //Vector<T> operator= (std::initializer_list<T> list);
         Vector<T>& operator= (const Vector<T>& vector);
     };
 
@@ -109,8 +106,8 @@ namespace restl {
     void Vector<T>::push_back(const T& value)
     {
         if (this->capacity == this->length)
-            reserve(this->length * 2);
-        this->arr[this->capacity++] = value;
+            reserve(this->capacity * 2);
+        this->arr[this->length++] = value;
     }
 
     template<typename T>
@@ -121,16 +118,8 @@ namespace restl {
         return this->arr[index];
     }
 
-//    template<typename T>
-//    Vector<T> Vector<T>::operator= (std::initializer_list<T> list)
-//    {
-//        for (std::size_t i = 0; i < list.size(); i++)
-//            this->push_back(list[i]);
-//        return *this;
-//    }
-
     template<typename T>
-    Vector<T>& Vector<T>::operator=(const Vector<T>& vector)
+    Vector<T>& Vector<T>::operator= (const Vector<T>& vector)
     {
         this->capacity = vector.capacity;
         this->length = vector.length;

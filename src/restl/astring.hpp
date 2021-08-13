@@ -17,6 +17,7 @@ namespace restl {
         Astring(const char* str);
         Astring(const Astring& str);
         Astring(Astring&& str);
+        virtual ~Astring();
 
         std::size_t size();
         Astring operator= (const char* data);
@@ -53,6 +54,12 @@ namespace restl {
         delete [] str.data;
         str.data = nullptr;
         str.length = 0;
+    }
+
+    Astring::~Astring()
+    {
+        delete[] this->data;
+        this->data = nullptr;
     }
 
     std::size_t Astring::size()
